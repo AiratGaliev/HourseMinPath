@@ -5,7 +5,6 @@ public class Board {
 	private final int height;
 
 	public Board(int width, int height) {
-		super();
 		this.width = width;
 		this.height = height;
 	}

@@ -6,6 +6,7 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.airatgaliev.hourseminpath.model.Board;
 import com.airatgaliev.hourseminpath.model.Cell;
