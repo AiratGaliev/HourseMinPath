@@ -1,1 +1,1 @@
-# KnightMinPath
+# HourseMinPath
