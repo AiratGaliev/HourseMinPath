@@ -25,8 +25,6 @@ public class BFS<T extends Chessman> {
 			// выполняем пока очередь не пуста
 			while (!queue.isEmpty()) {
 				ChessBoardCell cell = queue.poll();
-				cell.setWidth(width);
-				cell.setHeight(height);
 				int x = cell.getX();
 				int y = cell.getY();
 				int dist = cell.getDist();

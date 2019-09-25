@@ -1,8 +1,7 @@
 package com.airatgaliev.hourse_min_path.model;
 
 public class ChessBoardCell {
-	private int width, height;
-	private int x, y, dist; // ширина, высота, координаты ячейки и минимальный путь
+	private int x, y, dist; // координаты ячейки и минимальный путь
 
 	public ChessBoardCell() {
 	}
@@ -37,23 +36,6 @@ public class ChessBoardCell {
 	public int getDist() {
 		return dist;
 	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
 	
 
 	@Override

@@ -31,22 +31,20 @@ public class HoursePathController {
 	@RequestMapping(value = "/count", method = RequestMethod.GET)
 	public HttpEntity<Count> count(@RequestParam(value = "width", defaultValue = "8") int width,
 			@RequestParam(value = "height", defaultValue = "8") int height,
-			@RequestParam(value = "start", defaultValue = "a1") String start,
-			@RequestParam(value = "end", defaultValue = "h8") String end) {
+			@RequestParam(value = "start", defaultValue = "A1") String start,
+			@RequestParam(value = "end", defaultValue = "H8") String end) {
 		int startX, startY, endX, endY, minPath;
 		try {
 			startX = NumberFromExcelColumn(start.replaceAll("[0-9]", ""));
-			startY = Integer.parseInt(start.replaceAll("[a-z]", "")) - 1;
+			startY = Integer.parseInt(start.toUpperCase().replaceAll("[A-Z]", "")) - 1;
 			endX = NumberFromExcelColumn(end.replaceAll("[0-9]", ""));
-			endY = Integer.parseInt(end.replaceAll("[a-z]", "")) - 1;
+			endY = Integer.parseInt(end.toUpperCase().replaceAll("[A-Z]", "")) - 1;
 			minPath = bfs.getMinPath(width, height, startX, startY, endX, endY, hourse);
-			System.out.println(startX + " " + startY + " " + endX + " " + endY);
-			System.out.println(minPath);
 		} catch (NullPointerException e) {
 			minPath = -1;
 		}
 		Count count = new Count(String.format(TEMPLATE, minPath));
-		count.add(linkTo(methodOn(HoursePathController.class).count(width, height, start, end)).withSelfRel());
+		count.add(linkTo(methodOn(HoursePathController.class).count(width, height, start.toUpperCase(), end.toUpperCase())).withSelfRel());
 
 		return new ResponseEntity<>(count, HttpStatus.OK);
 
@@ -54,7 +52,7 @@ public class HoursePathController {
 
 	public int NumberFromExcelColumn(String column) {
 		int retVal = 0;
-		String col = column.toUpperCase();
+		String col = column;
 		for (int iChar = col.length() - 1; iChar >= 0; iChar--) {
 			char colPiece = col.charAt(iChar);
 			int colNum = colPiece - 64;
