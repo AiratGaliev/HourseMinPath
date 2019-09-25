@@ -1,17 +1,14 @@
-package com.airatgaliev.hourse_min_path.model;
+package com.airatgaliev.hourseminpath.model;
 
-public class ChessBoardCell {
+public class Cell {
 	private int x, y, dist; // координаты ячейки и минимальный путь
 
-	public ChessBoardCell() {
-	}
-
-	public ChessBoardCell(int x, int y) {
+	public Cell(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 
-	public ChessBoardCell(int x, int y, int dist) {
+	public Cell(int x, int y, int dist) {
 		this.x = x;
 		this.y = y;
 		this.dist = dist;
@@ -21,22 +18,17 @@ public class ChessBoardCell {
 		return x;
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
-
 	public int getY() {
 		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 
 	public int getDist() {
 		return dist;
 	}
-	
+
+	public boolean isCurrentPosition(Cell other) {
+		return this.x == other.x && this.y == other.y;
+	}
 
 	@Override
 	public boolean equals(Object o) {
@@ -45,7 +37,7 @@ public class ChessBoardCell {
 		if (o == null || getClass() != o.getClass())
 			return false;
 
-		ChessBoardCell chessBoard = (ChessBoardCell) o;
+		Cell chessBoard = (Cell) o;
 
 		if (x != chessBoard.x)
 			return false;

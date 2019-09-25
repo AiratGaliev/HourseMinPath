@@ -1,4 +1,4 @@
-package com.airatgaliev.hourse_min_path.model;
+package com.airatgaliev.hourseminpath.model;
 
 import org.springframework.hateoas.ResourceSupport;
 

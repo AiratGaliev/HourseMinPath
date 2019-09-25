@@ -1,4 +1,4 @@
-package com.airatgaliev.hourse_min_path;
+package com.airatgaliev.hourseminpath;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
